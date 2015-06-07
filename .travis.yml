@@ -1,0 +1,9 @@
+language: java
+jdk:
+  - openjdk7
+  - oraclejdk7  
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'angular-spring-project' ]; then cd .. && eval "mv $currentfolder angular-spring-project" && cd angular-spring-project; fi
+  - npm install -g bower grunt-cli grunt
+  - bower install && npm install && grunt
